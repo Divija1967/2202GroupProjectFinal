@@ -75,4 +75,13 @@ getData('./Optimism_and_your_health.txt', 'sample').then((data) => {
 
 // Write the results in a file called results.txt
 
+//reading file without promise
+const fs = require('fs')
 
+fs.readFile('Optimism_and_your_health.txt', 'utf8' , (err, data) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.log(data)
+})
