@@ -1,6 +1,26 @@
 // Write a script to
 // Read the contents of both files (must use Promises when reading the text file)
 
+const {readFile} = require("fs");
+
+const fileRead = (path) => {
+  readFile(path, (error, fileBuffer) => {
+    if (error) {
+      console.error(error.message);
+      process.exit(1);
+    }
+
+    const fileContent = fileBuffer.toString();
+
+    console.log(fileContent);
+  });
+};
+
+fileRead("package.json");
+fileRead("README.md");
+fileRead("index.js");
+
+// teddy bear
 const fs = require('fs');
 const { Module } = require('module');
 function getData(fileName, type) {
