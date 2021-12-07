@@ -40,14 +40,14 @@ Promise.all([
 //E.g. when a word in the synonyms category is mentioned you increment the count for that category.
 function wordCount (text, cat, wordsArr){
     let wordTypeObj = Object.getPrototypeOf(words);
+    
     wordTypeObj.category = cat;
     let counter = 0;
     for(let i = 0; i<wordsArr.length;i++){
-        let textArr = text.toUpperCase().split(" ");
+        let textArr = text.toUpperCase().split(/\s+/g);
         let e = textArr[i];
         for (e of textArr){
             if (e==wordsArr[i].toUpperCase()){
-                console.log("if");
                // console.log(e);
                 counter++;
             }
