@@ -85,3 +85,25 @@ fs.readFile('Optimism_and_your_health.txt', 'utf8' , (err, data) => {
   }
   console.log(data)
 })
+
+//reading file with promise
+const fs = require('fs')
+
+function getDataPromise(fileName, dataType){
+
+    let promise = new Promise( (resolve, reject) => {
+
+        fs.readFile("Optimism_and_your_health.txt", "utf8", (error, data) => {
+            if (data)
+            resolve(data);
+            else
+            reject(error);
+        }  );
+    });
+
+    return promise;
+}
+
+getDataPromise('./Optimism_and_your_health.txt', 'sample').then((data) => {
+    console.log(data);
+});
